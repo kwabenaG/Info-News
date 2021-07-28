@@ -17,8 +17,8 @@ class _StartScreenState extends State<StartScreen> {
   Widget build(BuildContext context) {
     return CupertinoApp(
         theme: CupertinoThemeData(
-          primaryColor: CupertinoColors.activeBlue,
-        ),
+            primaryColor: CupertinoColors.activeBlue,
+            scaffoldBackgroundColor: Color.fromRGBO(222, 224, 222, 0.9)),
         debugShowCheckedModeBanner: false,
         initialRoute: "/",
         routes: {
