@@ -32,34 +32,32 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: CupertinoPageScaffold(
-          backgroundColor: Color.fromRGBO(222, 224, 222, 0.9),
-          child: Stack(fit: StackFit.expand, children: <Widget>[
-            Center(
+    return CupertinoPageScaffold(
+        backgroundColor: Color.fromRGBO(222, 224, 222, 0.9),
+        child: Stack(fit: StackFit.expand, children: <Widget>[
+          Center(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  CircleAvatar(
+                      backgroundColor: Colors.blueAccent,
+                      radius: 50.0,
+                      child: Icon(Icons.book_rounded,
+                          size: 50.0, color: Colors.white)),
+                  Text("INFO DEM",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w900, fontSize: 50.0)),
+                  Padding(padding: EdgeInsets.only(top: 60.0))
+                ]),
+          ),
+          Center(
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    CircleAvatar(
-                        backgroundColor: Colors.blueAccent,
-                        radius: 50.0,
-                        child: Icon(Icons.book_rounded,
-                            size: 50.0, color: Colors.white)),
-                    Text("INFO DEM",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w900, fontSize: 50.0)),
-                    Padding(padding: EdgeInsets.only(top: 60.0))
-                  ]),
-            ),
-            Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                  Padding(padding: EdgeInsets.only(bottom: 105.0)),
-                  Text("...know the right info"),
-                ])),
-          ])),
-    );
+                Padding(padding: EdgeInsets.only(bottom: 105.0)),
+                Text("...know the right info"),
+              ])),
+        ]));
   }
 }
 

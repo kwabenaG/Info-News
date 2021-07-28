@@ -2,12 +2,12 @@ import "dart:core";
 import "package:flutter/cupertino.dart";
 import 'package:riverpod/riverpod.dart';
 
-class EventScreen extends StatefulWidget {
+class AnnouncementScreen extends StatefulWidget {
   @override
-  _EventScreenState createState() => _EventScreenState();
+  _AnnouncementScreenState createState() => _AnnouncementScreenState();
 }
 
-class _EventScreenState extends State<EventScreen> {
+class _AnnouncementScreenState extends State<AnnouncementScreen> {
   @override
   Widget build(BuildContext context) {
     return Center(child: Text("Event"));
