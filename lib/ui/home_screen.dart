@@ -37,7 +37,7 @@ class _HomePageState extends State<HomeScreen> {
                   child: Container(
                       alignment: Alignment.center,
                       child: Column(
-                        children: [Text("Something")],
+                        children: [Text("Something Nice about Scaffold")],
                       )),
                 ));
           });
