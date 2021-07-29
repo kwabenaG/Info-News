@@ -1,5 +1,6 @@
 import 'dart:core';
 import 'dart:async';
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 
 class DefaultPage extends StatefulWidget {
@@ -10,6 +11,6 @@ class DefaultPage extends StatefulWidget {
 class _DefaultPageState extends State<DefaultPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Home Page'));
+    return Center(child: Text('Home page'));
   }
 }

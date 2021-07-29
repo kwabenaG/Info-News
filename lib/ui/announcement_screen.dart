@@ -10,6 +10,6 @@ class AnnouncementScreen extends StatefulWidget {
 class _AnnouncementScreenState extends State<AnnouncementScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text("Event"));
+    return Center(child: Text("Announcement"));
   }
 }

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:ui';
+import 'dart:io';
 import "package:flutter/cupertino.dart";
 import 'package:flutter/material.dart';
 import 'package:info_dem/ui/home_screen.dart';
@@ -26,39 +27,81 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // navigation method to the  next page
   navigate() {
-    Navigator.of(context).pushReplacement(
-        CupertinoPageRoute(builder: (context) => HomeScreen()));
+    if (Platform.isIOS) {
+      return Navigator.of(context).pushReplacement(
+          CupertinoPageRoute(builder: (context) => HomeScreen()));
+    } else {
+      return Navigator.of(context).pushReplacementNamed("/home");
+    }
+  }
+
+  //checks the platforms available
+  checkPlatform() {
+    return Platform.isIOS ? cupertIos() : android();
   }
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-        backgroundColor: Color.fromRGBO(222, 224, 222, 0.9),
-        child: Stack(fit: StackFit.expand, children: <Widget>[
-          Center(
+    return checkPlatform();
+  }
+}
+
+// ios widgets
+Widget cupertIos() {
+  return CupertinoPageScaffold(
+      backgroundColor: Color.fromRGBO(222, 224, 222, 0.9),
+      child: Stack(fit: StackFit.expand, children: <Widget>[
+        Center(
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                CircleAvatar(
+                    backgroundColor: Colors.blueAccent,
+                    radius: 50.0,
+                    child: Icon(CupertinoIcons.news_solid,
+                        size: 50.0, color: Colors.white)),
+                Text("INFO DEM",
+                    style:
+                        TextStyle(fontWeight: FontWeight.w900, fontSize: 50.0)),
+                Padding(padding: EdgeInsets.only(top: 60.0))
+              ]),
+        ),
+        Center(
             child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  CircleAvatar(
-                      backgroundColor: Colors.blueAccent,
-                      radius: 50.0,
-                      child: Icon(Icons.book_rounded,
-                          size: 50.0, color: Colors.white)),
-                  Text("INFO DEM",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 50.0)),
-                  Padding(padding: EdgeInsets.only(top: 60.0))
-                ]),
-          ),
-          Center(
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                Padding(padding: EdgeInsets.only(bottom: 105.0)),
-                Text("...know the right info"),
-              ])),
-        ]));
-  }
+              Padding(padding: EdgeInsets.only(bottom: 105.0)),
+              Text("...know the right info"),
+            ])),
+      ]));
+}
+
+// android widget
+Widget android() {
+  return Scaffold(
+      body: Stack(fit: StackFit.expand, children: <Widget>[
+    Center(
+      child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CircleAvatar(
+                backgroundColor: Colors.blueAccent,
+                radius: 50.0,
+                child: Icon(Icons.article_rounded,
+                    size: 50.0, color: Colors.white)),
+            Text("INFO DEM",
+                style: TextStyle(fontWeight: FontWeight.w900, fontSize: 50.0)),
+            Padding(padding: EdgeInsets.only(top: 60.0))
+          ]),
+    ),
+    Center(
+        child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+          Padding(padding: EdgeInsets.only(bottom: 105.0)),
+          Text("...know the right info"),
+        ])),
+  ]));
 }
 
 // responsible for disposing of state. State can not be remounted
